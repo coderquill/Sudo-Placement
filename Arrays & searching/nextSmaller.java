@@ -3,7 +3,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class nexstSmaller {
+class nextSmaller {
 	public static void main (String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int testCases = scan.nextInt();
