@@ -40,9 +40,9 @@ private static Node insert(Node node, int data){
 			node = new Node(data);
 		else{
 			if(node.getLeft() == null)
-				node.right = insert(node.right, data);
-			else 
 				node.left = insert(node.left, data);
+			else 
+				node.right = insert(node.right, data);
 		}
 		return node;
 	}
