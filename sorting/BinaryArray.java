@@ -5,7 +5,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class GFG {
+class BinaryArray {
 	public static void main (String[] args) {
 		//code
 		Scanner scan = new Scanner(System.in);
