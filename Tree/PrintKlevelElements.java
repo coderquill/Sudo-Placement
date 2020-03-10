@@ -1,4 +1,5 @@
-// { Driver Code Starts
+/ { Driver Code Starts
+
 //Initial Template for Java
 
 import java.util.LinkedList; 
@@ -17,7 +18,7 @@ class Node{
     }
 }
 
-class InorderNonRecursive {
+class PrintKlevelElements {
     
     static Node buildTree(String str){
         
@@ -75,30 +76,33 @@ class InorderNonRecursive {
         
         return root;
     }
-  
+    
 	public static void main (String[] args) throws IOException{
 	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	        
 	        int t=Integer.parseInt(br.readLine());
     
 	        while(t > 0){
+	            String X[] = br.readLine().trim().split(" ");
+	            int k = Integer.parseInt(X[0]);
 	            String s = br.readLine();
     	    	Node root = buildTree(s);
-    	    	Tree g = new Tree();
-                g.inOrder(root);
-                System.out.print("\n");
+        	    Tree g = new Tree();
+			    g.printKdistance(root,k);
+			    System.out.println();
                 t--;
+            
         }
     }
+  
 }
+
 // } Driver Code Ends
 //User function Template for Java
 
-
-
-/* A Binary Tree node 
-
-class Node {
+/*
+class Node
+{
     int data;
     Node left, right;
    Node(int item)    {
@@ -109,30 +113,31 @@ class Node {
 
 class Tree
 {
- 
-    void inOrder(Node root)
-    {
-        /*while(root!=null){
-            inOrder(root.left);
-            System.out.println(root.data+" ");
-            inOrder(root.right);
-        }// Code*/
-       Stack<Node> stack = new Stack();
-	Node temp = root;
-	while(temp!=null){
-		stack.push(temp);
-		temp = temp.left;
-	}
-	while(!stack.empty()){
-		temp = stack.pop()
-		System.out.println(temp.data+" ");
-		temp = temp.right;
-		while(temp!=null){
-			stack.push(temp);
-			temp=temp.left;
-		}
-	}
-    }
-    
-    
+     // Recursive function to print right view of a binary tree.
+     int level = 0;
+     void printKdistance(Node root, int k)
+     {
+         
+          if(root == null)  
+            return;
+            if(k==0)
+                System.out.print(root.data+" ");
+            else{
+                if(root.left!=null)
+                printKdistance(root.left, k-1);
+                 if(root.right!=null)
+                printKdistance(root.right, k-1);
+            }
+          /*Queue<Node> q = new LinkedList<>();
+          Node tempNode = root;
+          q.add(tempNode);
+          while(!q.isEmpty()){
+              tempNode = q.poll();
+              //System.out.print(tempNode.data);
+              if(tempNode.left!=null)
+                q.add(tempNode.left);
+                if(tempNode.right!=null)
+                q.add(tempNode.right);
+          }*/
+     }
 }
